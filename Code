@@ -1,0 +1,353 @@
+#define echoPin 9
+
+#define trigPin 8
+
+int a=0;
+
+void setup(){
+
+Serial.begin(9600);
+
+pinMode(trigPin, OUTPUT);
+
+pinMode(echoPin, INPUT);
+
+pinMode(14, INPUT);
+
+pinMode(4, OUTPUT);
+
+pinMode(5, OUTPUT);
+
+pinMode(6, OUTPUT);
+
+pinMode(7, OUTPUT);
+
+//pinMode(10, OUTPUT);
+
+pinMode(11, OUTPUT);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+//digitalWrite(10, LOW);
+
+digitalWrite(11, LOW);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(3000);
+
+}
+
+void loop() {
+
+loop1:
+
+long duration, distance;
+
+digitalWrite(trigPin, LOW); 
+
+delayMicroseconds(2); 
+
+digitalWrite(trigPin, HIGH); 
+
+delayMicroseconds(10);
+
+digitalWrite(trigPin, LOW);
+
+duration = pulseIn(echoPin, HIGH);
+
+distance = ((duration)/2) / 29.1;
+
+Serial.print("D1:");
+
+Serial.print(distance);
+
+Serial.print("\n");
+
+delay(2);
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+// digitalWrite(10, HIGH);
+
+//digitalWrite(11, LOW);
+
+/*delay(100);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);*/
+
+//delay(1000);
+
+if(digitalRead(14)==LOW){
+
+digitalWrite(11, HIGH);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+while(digitalRead(14)==LOW);
+
+delay(1000); }
+
+if(digitalRead(14)!=LOW){
+
+digitalWrite(11, LOW);
+
+delay(100); }
+
+if(distance<=30 && a==0){
+
+a=1;
+
+Serial.println("backward");
+
+//digitalWrite(10, LOW);
+
+digitalWrite(11, HIGH);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, HIGH);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, HIGH);
+
+delay(1100);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+delay(1000);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, HIGH);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, HIGH);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(11, LOW);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(10);
+
+goto loop1; }
+
+if(distance<=30 && a==1)
+
+a=0;
+
+Serial.println("backward");
+
+//digitalWrite(10, LOW);
+
+digitalWrite(11, HIGH);
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, HIGH);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, HIGH);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, HIGH);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+
+delay(1000);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, HIGH);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(1500);
+
+digitalWrite(4, LOW);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, LOW);
+
+digitalWrite(7, LOW);
+delay(1000);
+
+digitalWrite(11, LOW);
+
+digitalWrite(4, HIGH);
+
+digitalWrite(5, LOW);
+
+digitalWrite(6, HIGH);
+
+digitalWrite(7, LOW);
+
+delay(10);
+
+goto loop1;
+
+}
+
+}
